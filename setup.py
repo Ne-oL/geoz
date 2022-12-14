@@ -1,19 +1,14 @@
 from setuptools import setup, find_packages
-import subprocess
-import os
+from setuptools_scm import get_version
 
-geoz_version = (
-    subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE)
-    .stdout.decode("utf-8")
-    .strip()
-)
+
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name='geoz',
-    version= geoz_version,
+    version= get_version(),
     description='A Library to create Geographic Maps from Unsupervised algorithms',
     py_modules=['geoz'],
     package_dir={'':'src'},
