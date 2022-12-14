@@ -6,3 +6,5 @@ Unsupervised Machine Learning techniques. The library is geared mainly toward de
 algorithms, but it can be used for other Machine Learning algorithms.
 
 See (https://github.com/Ne-oL/geoz) for complete documentation (under construction).
+
+Created By Khalid ElHaj, Radiation Lab, UAE University
