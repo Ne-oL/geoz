@@ -19,8 +19,8 @@ if "-" in geoz_version:
 assert "-" not in geoz_version
 assert "." in geoz_version
 
-assert os.path.isfile("geoz/version.py")
-with open("geoz/VERSION", "w", encoding="utf-8") as fh:
+assert os.path.isfile("src/version.py")
+with open("src/VERSION", "w", encoding="utf-8") as fh:
     fh.write("%s\n" % geoz_version)
 
 with open("README.md", "r") as fh:
