@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='geoz',
-    version='1.3',
+    version='1.3.1',
     description='A Library to create Geographic Maps from Unsupervised algorithms',
     py_modules=['geoz'],
     package_dir={'':'src'},
