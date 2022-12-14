@@ -29,7 +29,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install setuptools_scm
+        pip install setuptools_scm setuptools wheel twine
         pip install build
     - name: Build package
       run: python -m build
