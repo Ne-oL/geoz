@@ -1,11 +1,34 @@
 from setuptools import setup, find_packages
+import subprocess
+import os
+
+geoz_version = (
+    subprocess.run(["git", "describe", "--tags"], stdout=subprocess.PIPE)
+    .stdout.decode("utf-8")
+    .strip()
+)
+
+if "-" in geoz_version:
+    # when not on tag, git describe outputs: "1.3.3-22-gdf81228"
+    # pip has gotten strict with version numbers
+    # so change it to: "1.3.3+22.git.gdf81228"
+    # See: https://peps.python.org/pep-0440/#local-version-segments
+    v,i,s = geoz_version.split("-")
+    geoz_version = v + "+" + i + ".git." + s
+
+assert "-" not in geoz_version
+assert "." in geoz_version
+
+assert os.path.isfile("geoz/version.py")
+with open("geoz/VERSION", "w", encoding="utf-8") as fh:
+    fh.write("%s\n" % geoz_version)
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name='geoz',
-    version='1.3.1',
+    version= geoz_version,
     description='A Library to create Geographic Maps from Unsupervised algorithms',
     py_modules=['geoz'],
     package_dir={'':'src'},
