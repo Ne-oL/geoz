@@ -3,16 +3,32 @@ from setuptools_scm import get_version
 
 
 
+# Loads _version.py module without importing the whole package.
+def get_version_and_cmdclass(pkg_path):
+    import os
+    from importlib.util import module_from_spec, spec_from_file_location
+    spec = spec_from_file_location(
+        'version', os.path.join(pkg_path, '_version.py'),
+    )
+    module = module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.__version__, module.get_cmdclass(pkg_path)
+
+
+version, cmdclass = get_version_and_cmdclass('my_package')
+
+
+
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
     name='geoz',
+    version=version,
+    cmdclass=cmdclass,
     description='A Library to create Geographic Maps from Unsupervised algorithms',
     py_modules=['geoz'],
     package_dir={'':'src'},
-    use_scm_version=True,
-    setup_requires=['setuptools_scm'],
     install_requires=['pandas', 'mlxtend', 'scikit-learn', 'matplotlib', 'geopandas'],
     
     
