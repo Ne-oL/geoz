@@ -8,10 +8,11 @@ with open("README.md", "r") as fh:
 
 setup(
     name='geoz',
-    version= get_version(),
     description='A Library to create Geographic Maps from Unsupervised algorithms',
     py_modules=['geoz'],
     package_dir={'':'src'},
+    use_scm_version=True,
+    setup_requires=['setuptools_scm'],
     install_requires=['pandas', 'mlxtend', 'scikit-learn', 'matplotlib', 'geopandas'],
     
     
