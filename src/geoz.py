@@ -4,12 +4,14 @@ Geographic Decision Zones (GeoZ)
 GeoZ is a Python module integrating several machine learning algorithms to create Geographic Maps for the output of 
 Unsupervised Machine Learning techniques. The module is geared mainly toward delineating the output from Clustering algorithms.
 See (https://github.com/Ne-oL/geoz) for complete documentation (under construction).
+
 """
 
 # Khalid ElHaj (2022)
 # Geographic Decision Zones (GeoZ)
 #
 # A function for converting Decision Zones into Geographic Maps.
+#
 # Author: Khalid ElHaj <KG.Khair@Gmail.com>
 #
 # License: GNU AGPL-3.0 license
@@ -27,7 +29,7 @@ from sklearn.svm import SVC
 import geopandas as gpd
 
 
-def sklearn_plot(latlong, y_pred, res=100, colormap='Set3', show_points=True, bazel=False, n_samples='default', extent=1, random_seed=None):
+def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, res=100, colormap='Set3', show_points=True, bazel=False, n_samples='default', extent=1, random_seed=None):
     '''
     This Function utilize Scikit-Learn's "DecisionBoundaryDisplay" (http://scikit-learn.org) to draw the map. 
     The advantage of this method is that it gives the user a lot of flexibility to modify and adjust the map 
@@ -41,32 +43,57 @@ def sklearn_plot(latlong, y_pred, res=100, colormap='Set3', show_points=True, ba
     latlong : DataFrame
         The Latitude and Longitude Coordinates of the Data points. The DataFrame must contain two columns,
         These columns should be named 'LONGITUDE','LATITUDE' verbatim.
+        
     y_pred : List
         The y_pred is the Clustering prediction of the samples submitted to the algorithm, the results need to be saved
         in a list array with a (-1) dimension.
+        
+    SVC Parameters:
+    
+        C : float, default=1.0
+            Regularization parameter. The strength of the regularization is inversely proportional to C. Must be strictly positive. 
+            The penalty is a squared l2 penalty.
+        
+        gamma : {‘scale’, ‘auto’} or float, default=30
+            Kernel coefficient for ‘rbf’, ‘poly’ and ‘sigmoid’.
+                * if gamma='scale' (default) is passed then it uses 1 / (n_features * X.var()) as value of gamma,
+                * if ‘auto’, uses 1 / n_features
+                * if float, must be non-negative.
+            in the GeoZ library, the gamma parameter serves mainly as a controller to the buffer zone around the points of the 
+            cluster, as well as the inerconnectedness of the distant points within the same cluster/class. Decreasing this 
+            parameter would increase the buffer zone around the points and thus increase the uncertinity of the clusters boundaries. 
+            decreasing it would decrease the buffer zone around the points and consequently decreaseing the uncertinity of the 
+            clusters boundaries.
+        
     grid_resolution : int, default=100
         Number of grid points to use for plotting decision boundary. Higher values will make the plot look nicer but be 
         slower to render.
+        
     colormap : str or Colormap, optional
         A Colormap instance or registered colormap name. The colormap maps the level values to colors. 
-        Defaults to "Set3".    
+        Defaults to "Set3".  
+        
     show_points : bool, default True
         Display the points used to create the Decision Boundary. This would allow the user to check the accuracy of the model
         as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
+        
     bazel : bool, default False
-        This option allows the Function to creates a Bazel round the study area, the defaults are robust but not 
-        gurateed to work. its pretty easy to check if the function worked or not by looking at the 
-        final map/Decision Boundary plot, if the map have a Bazel, it means the method did NOT work and the user needs
-        to adjust the default values to increase generated data points to force the model to consider the Bazel cluster 
-        as the background. if it works, the map will be clear, showing only the clusters of interest without the Bazel showing.
+        This option allows the Function to creates a Bazel round the study area, the defaults are robust but not gurateed to work.
+        its pretty easy to check if the function worked or not by looking at the final map/Decision Boundary plot, if the map 
+        have a Bazel, it means the method did NOT work and the user needs to adjust the default values to increase generated 
+        data points to force the model to consider the Bazel cluster as the background. if it works, the map will be clear, 
+        showing only the clusters of interest without the Bazel showing.
+        
     n_samples : str or array (optional)
         This variable is generated based on the provided dataset, you only need to modify it if the method failed to force 
         SVM Classifier to consider the cluster as a background. The 'default' value takes the number of samples
         in the largest cluster and increase it by one and use it to create the bazel cluster.
+        
     extent : int, default=1
         The "width" of the generated Bazel, there should be no need to change this variable, however, if the method
         failed after manipulating n_samples, The default can be increase to 2 or 3 while adjusting the n_samples
-        accourdingly.     
+        accourdingly.    
+        
     random_seed : int (optional)    
         Sets Numpy Random Seed as a constat for Reproducibility. This mainly affect the randomness of the Bazel samples
         distribution within the extent parameter.
@@ -81,7 +108,7 @@ def sklearn_plot(latlong, y_pred, res=100, colormap='Set3', show_points=True, ba
     
     
     fig, ax = plt.subplots()
-    clf = SVC(C=100, gamma=30.0, random_state=42)
+    clf = SVC(C=C, gamma=gamma, random_state=42)
     
     # Creating the Bazel
     X=latlong[['LONGITUDE','LATITUDE']]
@@ -113,7 +140,7 @@ def sklearn_plot(latlong, y_pred, res=100, colormap='Set3', show_points=True, ba
 
     return ax
 
-def mlx_plot(latlong, y_pred, bazel=False, n_samples='default', extent=1, random_seed=None):
+def mlx_plot(latlong, y_pred, C=100, gamma=30.0, bazel=False, n_samples='default', extent=1, random_seed=None):
     
     '''
     This Function utilize Mlxtend's "decision_regions" (http://rasbt.github.io/mlxtend/) to draw the map. The advantage of 
@@ -131,23 +158,44 @@ def mlx_plot(latlong, y_pred, bazel=False, n_samples='default', extent=1, random
     latlong : DataFrame
         The Latitude and Longitude Coordinates of the Data points. The DataFrame must contain two columns,
         These columns should be named 'LONGITUDE','LATITUDE' verbatim.
+        
     y_pred : List
         The y_pred is the Clustering prediction of the samples submitted to the algorithm, the results need to be saved
-        in a list array with a (-1) dimension.   
+        in a list array with a (-1) dimension.
+        
+    SVC Parameters:
+    
+        C : float, default=1.0
+            Regularization parameter. The strength of the regularization is inversely proportional to C. Must be strictly positive. 
+            The penalty is a squared l2 penalty.
+        
+        gamma : {‘scale’, ‘auto’} or float, default=30
+            Kernel coefficient for ‘rbf’, ‘poly’ and ‘sigmoid’.
+                * if gamma='scale' (default) is passed then it uses 1 / (n_features * X.var()) as value of gamma,
+                * if ‘auto’, uses 1 / n_features
+                * if float, must be non-negative.
+            in the GeoZ library, the gamma parameter serves mainly as a controller to the buffer zone around the points of the 
+            cluster, as well as the inerconnectedness of the distant points within the same cluster/class. Decreasing this 
+            parameter would increase the buffer zone around the points and thus increase the uncertinity of the clusters boundaries. 
+            decreasing it would decrease the buffer zone around the points and consequently decreaseing the uncertinity of the 
+            clusters boundaries.
+
     bazel : bool, default False
         This option allows the Function to creates a Bazel round the study area, the defaults are robust but not 
         gurateed to work. its pretty easy to check if the function worked or not by looking at the 
         final map/Decision Boundary plot, if the map have a Bazel, it means the method did NOT work and the user needs
         to adjust the default values to increase generated data points to force the model to consider the Bazel cluster 
         as the background. if it works, the map will be clear, showing only the clusters of interest without the Bazel showing.
+        
     n_samples : str or array (optional)
         This variable is generated based on the provided dataset, you only need to modify it if the method failed to force 
         SVM Classifier to consider the cluster as a background. The 'default' value takes the number of samples
         in the largest cluster and increase it by one and use it to create the bazel cluster.
+        
     extent : int, default=1
-        The "width" of the generated Bazel, there should be no need to change this variable, however, if the method
-        failed after manipulating n_samples, The default can be increase to 2 or 3 while adjusting the n_samples
-        accourdingly.     
+        The "width" of the generated Bazel, there should be no need to change this variable, however, if the method failed 
+        after manipulating n_samples, The default can be increase to 2 or 3 while adjusting the n_samples accourdingly.     
+        
     random_seed : int (optional)    
         Sets Numpy Random Seed as a constat for Reproducibility. This mainly affect the randomness of the Bazel samples
         distribution within the extent parameter.
@@ -161,7 +209,7 @@ def mlx_plot(latlong, y_pred, bazel=False, n_samples='default', extent=1, random
     '''
 
     fig, ax = plt.subplots()
-    clf = SVC(C=100, gamma=30.0, random_state=42)
+    clf = SVC(C=C, gamma=gamma, random_state=42)
     
     # Creating the Bazel
     X=latlong[['LONGITUDE','LATITUDE']]
