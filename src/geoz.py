@@ -10,7 +10,7 @@ See (https://github.com/Ne-oL/geoz) for complete documentation (under constructi
 # Khalid ElHaj (2022)
 # Geographic Decision Zones (GeoZ)
 #
-# A function for converting Decision Zones into Geographic Maps.
+# A Library to convert Unsupervised Clustering Results into Geographical Maps
 #
 # Author: Khalid ElHaj <KG.Khair@Gmail.com>
 #
