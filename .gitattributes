@@ -1,4 +1,2 @@
 # Auto detect text files and perform LF normalization
 * text=auto
-# Your project's .gitattributes
-geoz/_static_version.py export-subst
