@@ -78,7 +78,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, res=100, colormap='Set3', s
         as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
         
     bazel : bool, default False
-        This option allows the Function to creates a Bazel round the study area, the defaults are robust but not gurateed to work.
+        This option allows the Function to creates a Bazel round the study area, the defaults are robust but not guaranteed to work.
         its pretty easy to check if the function worked or not by looking at the final map/Decision Boundary plot, if the map 
         have a Bazel, it means the method did NOT work and the user needs to adjust the default values to increase generated 
         data points to force the model to consider the Bazel cluster as the background. if it works, the map will be clear, 
@@ -182,7 +182,7 @@ def mlx_plot(latlong, y_pred, C=100, gamma=30.0, bazel=False, n_samples='default
 
     bazel : bool, default False
         This option allows the Function to creates a Bazel round the study area, the defaults are robust but not 
-        gurateed to work. its pretty easy to check if the function worked or not by looking at the 
+        guaranteed to work. its pretty easy to check if the function worked or not by looking at the 
         final map/Decision Boundary plot, if the map have a Bazel, it means the method did NOT work and the user needs
         to adjust the default values to increase generated data points to force the model to consider the Bazel cluster 
         as the background. if it works, the map will be clear, showing only the clusters of interest without the Bazel showing.
