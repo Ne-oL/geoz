@@ -33,7 +33,7 @@ import descartes
 
 def convex_hull_plot(latlong, y_pred, grid_resolution=100, colormap='Set3'):
 
-'''
+    '''
     This Function creates a Convex Hull for each set of points that belong to a distinct cluster using Shapely's "convex_hull" 
     (https://github.com/shapely/shapely) to eventually draw a map that contains all the clustered data. The usage of this method and 
     its main advantage is to detect any clear overlapping in the clustering algorithm as the other methods can draw overlapped regions.
