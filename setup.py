@@ -13,7 +13,7 @@ setup(
     description='A Library to convert Unsupervised Clustering Results into Geographical Maps',
     py_modules=['geoz'],
     package_dir={'':'src'},
-    install_requires=['pandas', 'mlxtend', 'scikit-learn', 'matplotlib', 'geopandas'],
+    install_requires=['pandas', 'mlxtend', 'scikit-learn', 'matplotlib', 'geopandas', 'shapely', 'descartes'],
     
     
     extras_require={
