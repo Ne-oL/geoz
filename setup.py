@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name='geoz',
-    version='1.5',
+    version='1.5.1',
     description='A Library to convert Unsupervised Clustering Results into Geographical Maps',
     py_modules=['geoz'],
     package_dir={'':'src'},
