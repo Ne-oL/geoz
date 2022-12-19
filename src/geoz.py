@@ -110,7 +110,7 @@ def convex_hull_plot(latlong, y_pred, grid_resolution=100, colormap='Set3'):
 
 
 
-def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, res=100, colormap='Set3', show_points=True, bazel=False, n_samples='default', extent=1, random_seed=None):
+def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colormap='Set3', show_points=True, bazel=False, n_samples='default', extent=1, random_seed=None):
     '''
     This Function utilize Scikit-Learn's "DecisionBoundaryDisplay" (http://scikit-learn.org) to draw the map. 
     The advantage of this method is that it gives the user a lot of flexibility to modify and adjust the map 
@@ -210,7 +210,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, res=100, colormap='Set3', s
     print('Drawing Accuracy: ',clf.score(X, y)*100, '%\n\n')
     cmap = mpl.colormaps[colormap]
     
-    DecisionBoundaryDisplay.from_estimator(clf, X, response_method='predict', ax=ax ,grid_resolution=res, plot_method='contourf',cmap=cmap)
+    DecisionBoundaryDisplay.from_estimator(clf, X, response_method='predict', ax=ax ,grid_resolution=grid_resolution, plot_method='contourf',cmap=cmap)
     fig.set_size_inches(100,100)
     
     #Points for GroundTruth
