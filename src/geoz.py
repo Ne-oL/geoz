@@ -53,7 +53,7 @@ def convex_hull_plot(latlong, y_pred, grid_resolution=100, colormap='Set3'):
         in a list array with a (-1) dimension.
         
     grid_resolution : int, default=100
-        Number of grid points to use for plotting decision boundary. Higher values will make the plot look nicer but be 
+        Number of grid points to use for plotting decision boundary. Higher values will make the plot look nicer but a bit 
         slower to render.
         
     colormap : str or Colormap, optional
