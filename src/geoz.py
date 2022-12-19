@@ -27,6 +27,87 @@ from sklearn.inspection import DecisionBoundaryDisplay
 from mlxtend.plotting import plot_decision_regions
 from sklearn.svm import SVC
 import geopandas as gpd
+import shapely.geometry
+import descartes
+
+
+def convex_hull_plot(latlong, y_pred, grid_resolution=100, colormap='Set3'):
+
+'''
+    This Function creates a Convex Hull for each set of points that belong to a distinct cluster using Shapely's "convex_hull" 
+    (https://github.com/shapely/shapely) to eventually draw a map that contains all the clustered data. The usage of this method and 
+    its main advantage is to detect any clear overlapping in the clustering algorithm as the other methods can draw overlapped regions.
+    However, due to its geometrical nature, the method isn't capable of accurately delineating the clusters regions nor should it be 
+    used for that. This method doesn't invlove any machine Learning Algorithms, thus it execute quickly and is suited for prototyping
+    the clustering algorithm's parameter to a certain degree.
+    
+    Parameters
+    ----------
+
+    latlong : DataFrame
+        The Latitude and Longitude Coordinates of the Data points. The DataFrame must contain two columns,
+        These columns should be named 'LONGITUDE','LATITUDE' verbatim.
+        
+    y_pred : List
+        The y_pred is the Clustering prediction of the samples submitted to the algorithm, the results need to be saved
+        in a list array with a (-1) dimension.
+        
+    grid_resolution : int, default=100
+        Number of grid points to use for plotting decision boundary. Higher values will make the plot look nicer but be 
+        slower to render.
+        
+    colormap : str or Colormap, optional
+        A Colormap instance or registered colormap name. The colormap maps the level values to colors. 
+        Defaults to "Set3".  
+
+    
+    Returns
+    -------   
+    ax: matplotlib.axes._subplots.AxesSubplot
+        The returned Object is an AxesSubplot, it will display automatically in IPython environments. the figure can also
+        be called using the (.figure) attribute. this will allow the user to manipulate it or save it using matplotlib as backend.
+                 
+    '''
+
+
+    # Create a list of Point objects for each data point
+    data = pd.DataFrame({'X':latlong['LONGITUDE'], 'Y':latlong['LATITUDE'], 'cluster':y_pred})
+    datagroup = data.groupby('cluster')
+    count=datagroup.count()[['X']].rename(columns={'X':'Number of Points'})
+    print(count)
+    print('Note: Clusters containing less than 3 points will be removed as Convex hull needs 3 points Minimum to be drawn')
+    data = datagroup.filter(lambda x: x.count().X >= 2)
+
+    # Get the unique values in the cluster column
+    unique_clusters = np.unique(data['cluster'])
+
+    # Generate a list of RGBA tuples for the clusters
+    colors = mpl.colormaps[colormap].colors
+    color_map = dict(zip(unique_clusters, colors))
+    fig, ax = plt.subplots()
+
+    # Loop over the unique clusters
+    for cluster in unique_clusters:
+        # Select the data points belonging to the current cluster
+        cluster_points = data[data['cluster'] == cluster][['X','Y']]
+        cluster_points = np.array(cluster_points)
+
+        # Create a MultiPoint object from the list of Point objects
+        multipoint = shapely.geometry.MultiPoint(cluster_points)
+
+        # Compute the convex hull of the data points
+        convex_hull = multipoint.convex_hull
+        
+        # Get a reference to the current Axes object and add the convex hull as a PolygonPatch
+        patch = descartes.PolygonPatch(convex_hull, fc=colors[cluster], alpha=0.5)
+        ax.add_patch(patch)
+
+    # Plot the data points on top of the convex hull
+    plt.scatter(data['X'], data['Y'], c= data['cluster'], s= grid_resolution, cmap='viridis')
+    fig.set_size_inches(grid_resolution, grid_resolution)
+
+    return ax
+
 
 
 def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, res=100, colormap='Set3', show_points=True, bazel=False, n_samples='default', extent=1, random_seed=None):
