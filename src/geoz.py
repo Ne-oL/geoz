@@ -74,8 +74,8 @@ def convex_hull_plot(latlong, y_pred, grid_resolution=100, colormap='Set3'):
     data = pd.DataFrame({'X':latlong['LONGITUDE'], 'Y':latlong['LATITUDE'], 'cluster':y_pred})
     datagroup = data.groupby('cluster')
     count=datagroup.count()[['X']].rename(columns={'X':'Number of Points'})
-    print(count)
     print('Note: Clusters containing less than 3 points will be removed as Convex hull needs 3 points Minimum to be drawn')
+    print(count)
     data = datagroup.filter(lambda x: x.count().X >= 2)
 
     # Get the unique values in the cluster column
