@@ -20,4 +20,4 @@ See the file ([LICENSE](https://github.com/Ne-oL/geoz/blob/main/LICENSE)) for in
 
 ## Contact
 
-The best way to ask questions is via the [GitHub Discussions channel](https://github.com/Ne-oL/geoz/discussions). In case you encounter any bugs, please create an issue in [GitHub's issue tracker](https://github.com/Ne-oL/geoz/issues) directly to let us know. 
+you can ask me any questions via my Twitter Account [Ne-oL](https://github.com/Ne-oL/geoz/discussions). In case you encounter any bugs, please create an issue in [GitHub's issue tracker](https://github.com/Ne-oL/geoz/issues) directly to let us know. 
