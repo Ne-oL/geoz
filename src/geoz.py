@@ -390,4 +390,4 @@ def bazel_cluster(X,y,n_samples='default', extent=1, random_seed=None):
     X=pd.concat((X, dataset), axis=0,ignore_index= True)
     return X,Y
     
-__all__ = [ "sklearn_plot", "mlx_plot"]
+__all__ = [ "sklearn_plot", "mlx_plot", "convex_hull_plot"]
