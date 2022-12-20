@@ -16,5 +16,8 @@ Geosciences Department @ UAE University
 
 ## License information
 
-See the file \"LICENSE.txt\" for information on the history of this software, terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES.
+See the file ([LICENSE](https://github.com/Ne-oL/geoz/blob/main/LICENSE)) for information on the terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES.
 
+## Contact
+
+The best way to ask questions is via the [GitHub Discussions channel](https://github.com/Ne-oL/geoz/discussions). In case you encounter any bugs, please create an issue in [GitHub's issue tracker](https://github.com/Ne-oL/geoz/issues) directly to let us know. 
