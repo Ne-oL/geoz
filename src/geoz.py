@@ -117,6 +117,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
     to his liking, as opposed to the other method in GeoZ library, this method is better suited for prototyping 
     and quick drafts as one of the option available to the user allows him to reduce the resolution, thus 
     produce more maps in a short amount of time.
+    https://spatialreference.org/ref/epsg/
     
     Parameters
     ----------
@@ -189,7 +190,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
     
     
     fig, ax = plt.subplots()
-    clf = SVC(C=C, gamma=gamma, random_state=42)
+    clf = SVC(C=C, gamma=gamma, random_state=random_seed)
     
     # Creating the Bazel
     X=latlong[['LONGITUDE','LATITUDE']]
@@ -290,7 +291,7 @@ def mlx_plot(latlong, y_pred, C=100, gamma=30.0, bazel=False, n_samples='default
     '''
 
     fig, ax = plt.subplots()
-    clf = SVC(C=C, gamma=gamma, random_state=42)
+    clf = SVC(C=C, gamma=gamma, random_state=random_seed)
     
     # Creating the Bazel
     X=latlong[['LONGITUDE','LATITUDE']]
@@ -384,6 +385,7 @@ def bazel_cluster(X,y,n_samples='default', extent=1, random_seed=None):
             long.append(pointLong)
     dataset=pd.DataFrame({'LONGITUDE': long,'LATITUDE': lat})
     dataset['y']=np.array(y).max()+1
+    #dataset['y']='bazel'
     Y=copy.deepcopy(y)
     Y.extend(dataset['y'].values)
     dataset=dataset[['LONGITUDE','LATITUDE']]
