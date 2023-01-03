@@ -1,3 +1,4 @@
+![PyPI](https://img.shields.io/pypi/v/geoz) ![PyPI - Downloads](https://img.shields.io/pypi/dm/geoz?color=dark%20green)
 ## Geographic Decision Zones (GeoZ)
 
 
