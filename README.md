@@ -27,7 +27,7 @@ The data provided needs to have two variables, one containing the latitude and l
 |    33    	|    -104   	|    2   	|
 |    35    	|    -102   	|    3   	|
 
-please make sure to write (LATITDE, LONGITUDE) in CAPITAL LETTER, otherwise the algorithm will fail.
+Please make sure to write (LATITDE, LONGITUDE) in CAPITAL LETTER, otherwise the algorithm will fail.
 
 ### Code Example
 
@@ -46,7 +46,7 @@ map3 = geoz.mlx_plot(dataset[['LATITDE','LONGITUDE']], dataset[['y_pred']])     
 
 ```
 
-for any other parameters and infromation please check the DocString as it contains detailed information
+For any other infromation or the functions other parameters, please check the functions DocStrings as they contain more details and information.
 
 ## License information
 
