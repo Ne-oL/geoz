@@ -31,7 +31,7 @@ Please make sure to write (LATITDE, LONGITUDE) in CAPITAL LETTER, otherwise the 
 
 ### Code Example
 
-In this example, we import geoz and then use an already defined variable 'dataset' that contains our above table, the variable can contain only the latitude and longitude, but we will need to use another variable y_pred to store the class predictions and use it in the functions calling.
+In this example, we import geoz and then use an already defined variable 'dataset' that contains our above table, the variable can contain the latitude, longitude and the y_pred, but it can also contain only the latitude and longitude without the class. in that case you will need to provide another variable (eg. y_pred) to store the class predictions and use it in the functions calling.
 
 ```python
 import geoz
@@ -46,7 +46,7 @@ map3 = geoz.mlx_plot(dataset[['LATITDE','LONGITUDE']], dataset[['y_pred']])     
 
 ```
 
-For any other infromation or the functions other parameters, please check the functions DocStrings as they contain more details and information.
+For further infromation or the functions other parameters, please check the functions DocStrings as they contain more details and information.
 
 ## License information
 
