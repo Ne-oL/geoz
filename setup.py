@@ -8,7 +8,8 @@ with open("README.md", "r") as fh:
 
 setup(
     name='geoz',
-    version='1.5.1',
+    version='1.5.2',
+    license="BSD 3-Clause",
     description='A Library to convert Unsupervised Clustering Results into Geographical Maps',
     py_modules=['geoz'],
     package_dir={'':'src'},
@@ -28,7 +29,7 @@ setup(
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Scientific/Engineering :: GIS",
         "Topic :: Scientific/Engineering :: Visualization",
-        "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+        "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent"
     ],
     python_requires='>=3',
