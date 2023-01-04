@@ -110,7 +110,7 @@ def convex_hull_plot(latlong, y_pred, grid_resolution=100, colormap='Set3'):
 
 
 
-def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colormap='Set3', show_points=True, bazel=False, n_samples='default', extent=1, random_seed=None):
+def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colormap='Set3', crs=None, show_points=False, bazel=False, n_samples='default', extent=1, random_seed=None):
     '''
     This Function utilize Scikit-Learn's "DecisionBoundaryDisplay" (http://scikit-learn.org) to draw the map. 
     The advantage of this method is that it gives the user a lot of flexibility to modify and adjust the map 
@@ -217,7 +217,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
     #Points for GroundTruth
     if show_points==True:
         #Convert the Points into Geometery file compatible with GeoPandas, then assign it correct coordinated and reproject it to similar projection to the shapefile (Basins)
-        gdf = gpd.GeoDataFrame(latlong, geometry=gpd.points_from_xy(latlong.LONGITUDE, latlong.LATITUDE))
+        gdf = gpd.GeoDataFrame(latlong, geometry=gpd.points_from_xy(latlong.LONGITUDE, latlong.LATITUDE, crs=crs))
         gdf.plot( marker='o',  color='red', markersize=50, ax=ax)
 
     return ax
