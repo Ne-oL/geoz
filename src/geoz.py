@@ -117,7 +117,6 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
     to his liking, as opposed to the other method in GeoZ library, this method is better suited for prototyping 
     and quick drafts as one of the option available to the user allows him to reduce the resolution, thus 
     produce more maps in a short amount of time.
-    https://spatialreference.org/ref/epsg/
     
     Parameters
     ----------
@@ -153,8 +152,13 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
         
     colormap : str or Colormap, optional
         A Colormap instance or registered colormap name. The colormap maps the level values to colors. 
-        Defaults to "Set3".  
+        Defaults to "Set3".
         
+    crs : str , optional
+        Coordinate Reference System of the Study Area you want to model. if you do not know yours, you can visit the 
+        EPSG website (https://spatialreference.org/ref/epsg/) and search for the appropriate authority string for your area, 
+        it should be a string like (eg "EPSG:4326") or a WKT string.
+
     show_points : bool, default True
         Display the points used to create the Decision Boundary. This would allow the user to check the accuracy of the model
         as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
