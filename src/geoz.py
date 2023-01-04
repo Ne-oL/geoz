@@ -202,6 +202,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
     y=y_pred
     print('y: ',len(y))
     if bazel==True:
+        print('Bazel Function is Enabled \nIf the Bazel Cluster is visible, this indicates that the function has failed, try to modify the number of samples or the extent of the Bazel and run it again \n\n')
         X,y=bazel_cluster(X, y, n_samples=n_samples, extent=extent, random_seed=random_seed)
         print('X with Bazel: ',len(X))
         print('y with Bazel: ',len(y))
@@ -212,7 +213,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
         y=np.array(y)
         
     clf.fit(X, y)
-    print('Drawing Accuracy: ',clf.score(X, y)*100, '%\n\n')
+    print('Drawing Accuracy: ',np.round(clf.score(X, y)*100,2), '%\n\n')
     cmap = mpl.colormaps[colormap]
     
     DecisionBoundaryDisplay.from_estimator(clf, X, response_method='predict', ax=ax ,grid_resolution=grid_resolution, plot_method='contourf',cmap=cmap)
@@ -303,6 +304,7 @@ def mlx_plot(latlong, y_pred, C=100, gamma=30.0, bazel=False, n_samples='default
     y=y_pred
     print('y: ',len(y))
     if bazel==True:
+        print('Bazel Function is Enabled \nIf the Bazel Cluster is visible, this indicates that the function has failed, try to modify the number of samples or the extent of the Bazel and run it again \n\n')
         X,y=bazel_cluster(X, y, n_samples=n_samples, extent=extent, random_seed=random_seed)
         print('X with Bazel: ',len(X))
         print('y with Bazel: ',len(y))
@@ -313,7 +315,7 @@ def mlx_plot(latlong, y_pred, C=100, gamma=30.0, bazel=False, n_samples='default
         y=np.array(y)
         
     clf.fit(X, y)
-    print('Drawing Accuracy: ',clf.score(X, y)*100, '%\n\n')
+    print('Drawing Accuracy: ',np.round(clf.score(X, y)*100,2), '%\n\n')
     
     plot_decision_regions(X, y, clf=clf, legend=0, ax=ax)
     fig.set_size_inches(100,100)
