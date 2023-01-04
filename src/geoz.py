@@ -14,7 +14,7 @@ See (https://github.com/Ne-oL/geoz) for complete documentation (under constructi
 #
 # Author: Khalid ElHaj <KG.Khair@Gmail.com>
 #
-# License: GNU AGPL-3.0 license
+# License: BSD 3 clause license
 
 import math
 import copy
