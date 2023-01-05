@@ -14,7 +14,7 @@ pip install geoz
 ```
 ## Usage Details
 
-The library is still in its inital stage. As such, the user will have to provide the data in a certain format as the library is working with a fixed structure and wont fix or tolerate any deviation from the expected format.
+The library is still in its experimental stage. As such, the user will have to provide the data in a certain format as the library is working with a fixed structure and wont fix or tolerate any deviation from the expected format.
 
 ### Dataset shape and format Example
 The data provided needs to have two variables, one containing the latitude and longitude (eg. latlong) and another variable that contains the predicted classes of the the points (eg. y_pred). please check the below table for illustration:
@@ -27,7 +27,7 @@ The data provided needs to have two variables, one containing the latitude and l
 |    33    	|    -104   	|    2   	|
 |    35    	|    -102   	|    3   	|
 
-Please make sure to write (LATITDE, LONGITUDE) in CAPITAL LETTER, otherwise the algorithm will fail.
+Please make sure to write (LATITUDE, LONGITUDE) in CAPITAL LETTER, otherwise the algorithm will fail.
 
 ### Code Example
 
