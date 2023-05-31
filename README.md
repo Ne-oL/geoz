@@ -57,7 +57,7 @@ See the file ([LICENSE](https://github.com/Ne-oL/geoz/blob/main/LICENSE)) for in
 You can ask me any questions via my Twitter Account [Ne-oL](https://twitter.com/Ne_oL). and in case you encountered any bugs, please create an issue in [GitHub's issue tracker](https://github.com/Ne-oL/geoz/issues) and I will try my best to address it as soon as possible. 
 
 ## Citation
-If you use mlxtend as part of your workflow in a scientific publication, please consider citing the mlxtend repository with the following DOI:
+If you use GeoZ as part of your workflow in a scientific publication, please consider citing the GeoZ repository with the following DOI:
 
 
 ```
