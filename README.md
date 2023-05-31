@@ -57,8 +57,25 @@ See the file ([LICENSE](https://github.com/Ne-oL/geoz/blob/main/LICENSE)) for in
 You can ask me any questions via my Twitter Account [Ne-oL](https://twitter.com/Ne_oL). and in case you encountered any bugs, please create an issue in [GitHub's issue tracker](https://github.com/Ne-oL/geoz/issues) and I will try my best to address it as soon as possible. 
 
 ## Citation
-Publication is under Process if you use this library in the mean time, please cite the Github repositry
+If you use mlxtend as part of your workflow in a scientific publication, please consider citing the mlxtend repository with the following DOI:
 
+
+```
+@article{ElHaj2023,
+author = {ElHaj, Khalid and Alshamsi, Dalal and Aldahan, Ala},
+doi = {10.1007/s41651-023-00146-0},
+issn = {2509-8829},
+journal = {Journal of Geovisualization and Spatial Analysis},
+number = {1},
+pages = {15},
+title = {{GeoZ: a Region-Based Visualization of Clustering Algorithms}},
+url = {https://doi.org/10.1007/s41651-023-00146-0},
+volume = {7},
+year = {2023}
+}
+```
+
+- ElHaj, Khalid, Dalal Alshamsi, and Ala Aldahan. 2023. “GeoZ: A Region-Based Visualization of Clustering Algorithms.” Journal of Geovisualization and Spatial Analysis 7 (1): 15. https://doi.org/10.1007/s41651-023-00146-0.
 
 Created By Khalid ElHaj, PhD Fellow
 
