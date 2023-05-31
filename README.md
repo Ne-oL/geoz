@@ -75,8 +75,4 @@ year = {2023}
 }
 ```
 
-- ElHaj, Khalid, Dalal Alshamsi, and Ala Aldahan. 2023. “GeoZ: A Region-Based Visualization of Clustering Algorithms.” Journal of Geovisualization and Spatial Analysis 7 (1): 15. https://doi.org/10.1007/s41651-023-00146-0.
-
-Created By Khalid ElHaj, PhD Fellow
-
-Geosciences Department @ UAE University
+- Khalid ElHaj, Dalal Alshamsi, and Ala Aldahan. 2023. “GeoZ: A Region-Based Visualization of Clustering Algorithms.” Journal of Geovisualization and Spatial Analysis 7 (1): 15. https://doi.org/10.1007/s41651-023-00146-0.
