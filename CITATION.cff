@@ -4,7 +4,7 @@ authors:
   - family-names: ElHaj
     given-names: Khalid
     orcid: https://orcid.org/0000-0001-7564-5063
-title: "GeoZ: Region-Based Visualization of Clustering Algorithms Output"
+title: "GeoZ: a Region-Based Visualization of Clustering Algorithms"
 version: 1.6.3
-doi: 10.5281/zenodo.7524946
+doi: https://doi.org/10.1007/s41651-023-00146-0
 date-released: 2023-01-11
