@@ -1,4 +1,4 @@
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ne-oL/geoz) ![PyPI](https://img.shields.io/pypi/v/geoz) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Ne-oL/geoz/python-publish.yml) ![PyPI - Downloads](https://img.shields.io/pypi/dm/geoz?color=dark%20green) [![DOI](https://zenodo.org/badge/577691777.svg)](https://zenodo.org/badge/latestdoi/577691777)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ne-oL/geoz) ![PyPI](https://img.shields.io/pypi/v/geoz) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Ne-oL/geoz/python-publish.yml) [![Downloads](https://static.pepy.tech/badge/geoz)](https://pepy.tech/project/geoz) [![DOI](https://zenodo.org/badge/577691777.svg)](https://zenodo.org/badge/latestdoi/577691777)
 # Geographic Decision Zones (GeoZ)
 
 
