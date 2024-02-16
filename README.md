@@ -31,7 +31,7 @@ Please make sure to write (LATITUDE, LONGITUDE) in CAPITAL LETTER, otherwise the
 
 ### Code Example
 
-In this example, we import geoz and then use an already defined variable 'dataset' that contains our above table, the variable can contain the latitude, longitude and the y_pred, but it can also contain only the latitude and longitude without the class. in that case you will need to provide another variable (eg. y_pred) to store the class predictions and use it in the functions calling.
+In this example, we import geoz and then use an already defined variable 'dataset' that contains our above table, the variable should contain the latitude, longitude and the y_pred, but it can also contain only the latitude and longitude without the class. In that case you will need to provide another variable (eg. y_pred) to store the class predictions and use it in the functions calling.
 
 ```python
 import geoz
@@ -57,7 +57,7 @@ See the file ([LICENSE](https://github.com/Ne-oL/geoz/blob/main/LICENSE)) for in
 You can ask me any questions via my Twitter Account [Ne-oL](https://twitter.com/Ne_oL). and in case you encountered any bugs, please create an issue in [GitHub's issue tracker](https://github.com/Ne-oL/geoz/issues) and I will try my best to address it as soon as possible. 
 
 ## Citation
-If you use GeoZ as part of your workflow in a scientific publication, please consider citing the GeoZ repository with the following DOI:
+If you use GeoZ as part of your workflow in a scientific publication, please consider citing GeoZ with the following DOI:
 
 
 ```
