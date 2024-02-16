@@ -46,7 +46,7 @@ map3 = geoz.mlx_plot(dataset[['LATITDE','LONGITUDE']], dataset[['y_pred']])     
 
 ```
 
-For further infromation or the functions other parameters, please check the functions DocStrings as they contain more details and information.
+For further infromation or the function's other parameters, please check the functions DocStrings as they contain more details and information.
 
 ## License information
 
