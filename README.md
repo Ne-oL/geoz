@@ -37,8 +37,22 @@ The algorithm has been enhanced to follow GIS conventions using positional index
 The examples illustrated here are used to demonstrate how each method plots the data. There are several examples and detailed implementations in the accompanying jupyter notebooks mentioned below. The user is advised to read them for greater details. 
 
 In all the examples shown we use a synthetic dataset called "GeoZD" as well as a simplified map of United Arab Emirates (UAE) for demonstration (displayed below). in the below examples, we import geoz and then use the already defined variable 'dataset' that contains our above table, the variable should contain the latitude, longitude and the y_pred, but it can also contain only the latitude and longitude without the class. In that case you will need to provide another variable (eg. y_pred) to store the class predictions and use it in the functions calling.
-<img src="./miscellaneous/img/points.png" alt="CH" width="500px">
-<img src="./miscellaneous/img/uae_shapfile.png" alt="CH" width="500px">
+<div align="center">
+  <table>
+    <tr>
+      <td align="center">
+        <img src="./miscellaneous/images/points.png" alt="Points" width="500px">
+        <br>
+        <em>Points Distribution</em>
+      </td>
+      <td align="center">
+        <img src="./miscellaneous/images/uae_shapfile.png" alt="UAE Shapefile" width="500px">
+        <br>
+        <em>UAE Shapefile</em>
+      </td>
+    </tr>
+  </table>
+</div>
 
 ```python
 import geoz
@@ -56,27 +70,27 @@ stategeo = stateFile.geometry.union_all(method='unary')
 stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5)
 ```
 
-#### Convex_hull Function
+#### convex_hull Function
 
 ```python
 map1 = geoz.convex_hull_plot(latlong[['y','x']], latlong['label'])              # This Function will return a Convex Hull map of the classes
 
 stateplot = stateFile.plot( color='none',  edgecolor='black',linewidth=5, ax=map1)  # This line will create a basemap ontop of the mapping function results.
 ```
-<img src="./miscellaneous/img/convex_hull.png" alt="CH" width="500px">
+<img src="./miscellaneous/images/convex_hull.png" alt="CH" width="500px">
 
 
-#### Sklearn_plot Function
+#### sklearn_plot Function
 
 ```python
 stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This line will create a basemap so the mapping function will draw ontop of it.
 
 map2 = geoz.sklearn_plot(latlong[['y','x']], latlong[['label']], C=1000, gamma=50.0, grid_resolution=100,show_points=True, bazel=True, ax=stateplot)                # This Function will return a map drawn using Scikit-Learn "DecisionBoundaryDisplay"
 ```
-<img src="./miscellaneous/img/sklearn_plot.png" alt="SKL" width="500px">
+<img src="./miscellaneous/images/sklearn_plot.png" alt="SKL" width="500px">
 
 
-#### Mlx_plot Function
+#### mlx_plot Function
 
 ```python
 stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This line will create a basemap so the mapping function will draw ontop of it.
@@ -84,20 +98,20 @@ stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This l
 
 map3 = geoz.mlx_plot(latlong[['y','x']], latlong[['label']], bazel=True, ax=stateplot, n_jobs=-1)                    # This Function will return a map drawn using MLextend  "decision_regions"
 ```
-<img src="./miscellaneous/img/mlx_plot.png" alt="CH" width="500px">
+<img src="./miscellaneous/images/mlx_plot.png" alt="CH" width="500px">
 
 
-#### Voronoi_regions_plot Function
+#### voronoi_regions_plot Function
 
 ```python
 stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This line will create a basemap so the mapping function will draw ontop of it.
 
 map4 = geoz.voronoi_regions_plot(latlong, 'x', 'y', 'label', show_points=True, ax= stateplot, mask=stategeo)                    # This Function will return a map drawn using MLextend  "decision_regions"
 ```
-<img src="./miscellaneous/img/mlx_plot.png" alt="CH" width="500px">
+<img src="./miscellaneous/images/voronoi_regions_plot.png" alt="CH" width="500px">
 
 
-For further infromation or the function's other parameters, please check the accompanying Jupyter Notebooks as well as functions DocStrings as they contain more details and information.
+For further infromation or the function's other parameters, please check the accompanying Jupyter Notebooks (still being prepared) as well as functions DocStrings as they contain more details and information.
 
 ## License information
 
