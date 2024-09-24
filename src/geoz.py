@@ -150,7 +150,7 @@ def convex_hull_plot(latlong, y_pred, grid_resolution=100, show_points=True, col
         
     colormap : str or Colormap, optional
         A Colormap instance or registered colormap name. The colormap maps the level values to colors. 
-        Defaults to "Set3".  
+        Defaults to "tab20".  
 
     
     Returns
@@ -247,7 +247,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
         
     SVC Parameters:
     
-        C : float, default=1.0
+        C : float, default=100
             Regularization parameter. The strength of the regularization is inversely proportional to C. Must be strictly positive. 
             The penalty is a squared l2 penalty.
         
@@ -268,7 +268,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
         
     colormap : str or Colormap, optional
         A Colormap instance or registered colormap name. The colormap maps the level values to colors. 
-        Defaults to "Set3".
+        Defaults to "tab20".
         
     crs : str, optional
         Coordinate Reference System of the Study Area you want to model. if you do not know yours, you can visit the 
@@ -589,9 +589,22 @@ def voronoi_regions_plot(data, lon_col, lat_col, region_col, alpha=None, ax=None
         An existing matplotlib Axes. If provided, the function will draw on this existing axis
         instead of creating a new figure.
 
+    colormap : str or Colormap, optional
+        A Colormap instance or registered colormap name. The colormap maps the level values to colors. 
+        Defaults to "tab20".
+        
+    crs : str, optional
+        Coordinate Reference System of the Study Area you want to model. if you do not know yours, you can visit the 
+        EPSG website (https://spatialreference.org/ref/epsg/) and search for the appropriate authority string for your area, 
+        it should be a string like (eg "EPSG:4326") or a WKT string.
+
+    show_points : bool, default True
+        Display the points used to create the Decision Boundary. This would allow the user to check the accuracy of the model
+        as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
+
     mask : shapely.geometry.Polygon, optional
         A polygon to use as a mask for the Voronoi diagram. If provided, the diagram will be
-        clipped to this shape.
+        clipped to the extent of this shape.
 
     Returns
     -------
