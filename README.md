@@ -1,10 +1,9 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/Ne-oL/geoz) ![PyPI](https://img.shields.io/pypi/v/geoz) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/Ne-oL/geoz/python-publish.yml) [![Downloads](https://static.pepy.tech/badge/geoz)](https://pepy.tech/project/geoz) [![DOI](https://zenodo.org/badge/577691777.svg)](https://zenodo.org/badge/latestdoi/577691777)
 
-<p align="center">
+<div align="center">
   <img src="./miscellaneous/images/geoz-logo.png" alt="GeoZ" width="300px">
-</p>
-
-# Geographic Decision Zones (GeoZ)
+    <h1>Geographic Decision Zones (GeoZ)</h1>
+</div>
 
 
 GeoZ is a Python library integrating several methods and machine learning modules to create Geographic Maps based on the output of Unsupervised Machine Learning techniques. The library is geared mainly toward delineating the output from Clustering algorithms, but it can be used for other Machine Learning algorithms. GeoZ is distributed under the 3-Clause BSD license.
