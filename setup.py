@@ -3,29 +3,29 @@ from setuptools import setup, find_packages
 
 
 
-with open("README.md", "r") as fh:
+with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
     name='geoz',
-    version='1.6.3',
+    version='2.0',
     license="BSD 3-Clause",
     description='A Library to convert Unsupervised Clustering Results into Geographical Maps',
-    py_modules=['geoz'],
+    packages=find_packages(where="src"),
     package_dir={'':'src'},
-    install_requires=['pandas', 'mlxtend', 'scikit-learn', 'matplotlib', 'geopandas', 'shapely', 'descartes'],
+    install_requires=['pandas', 'mlxtend', 'scikit-learn', 'matplotlib', 'geopandas', 'shapely'],
     
     
     extras_require={
         "dev": [
-            "pytest >= 3.7",
+            "pytest >= 3.9",
             "check-manifest",
             "twine"
         ]
     },
     classifiers=[
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.9",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
         "Topic :: Scientific/Engineering :: GIS",
         "Topic :: Scientific/Engineering :: Visualization",
