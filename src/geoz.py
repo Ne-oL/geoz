@@ -558,7 +558,7 @@ def mlx_plot(latlong, y_pred, C=100, gamma=30.0, bazel=False, n_samples='default
 
 
 
-def voronoi_regions_plot(data, lon_col, lat_col, region_col, alpha=None, ax=None, colormap=None, crs=None, show_points=False, mask=None):
+def voronoi_regions_plot(data, lon_col, lat_col, region_col, alpha=None, ax=None, colormap=None, crs=None, show_points=False, edgecolors='none', mask=None):
     
     '''
     This function creates a Voronoi diagram plot for clustered geographical data. It visualizes the regions
@@ -602,7 +602,11 @@ def voronoi_regions_plot(data, lon_col, lat_col, region_col, alpha=None, ax=None
         Display the points used to create the Decision Boundary. This would allow the user to check the accuracy of the model
         as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
 
-    mask : shapely.geometry.Polygon, optional
+    edges : bool, default False
+        Display the points used to create the Decision Boundary. This would allow the user to check the accuracy of the model
+        as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
+
+        mask : shapely.geometry.Polygon, optional
         A polygon to use as a mask for the Voronoi diagram. If provided, the diagram will be
         clipped to the extent of this shape.
 
@@ -669,7 +673,7 @@ def voronoi_regions_plot(data, lon_col, lat_col, region_col, alpha=None, ax=None
             colors.append(region_colors[region_name])
 
     # Create a PatchCollection with all polygons
-    pc = PatchCollection(patches, facecolors=colors, edgecolors='none', alpha=alpha)
+    pc = PatchCollection(patches, facecolors=colors, edgecolors=edgecolors, alpha=alpha)
 
     # Add the collection to the axis
     ax.add_collection(pc)
