@@ -385,7 +385,7 @@ def sklearn_plot(latlong, y_pred, C=100, gamma=30.0, grid_resolution=100, colorm
         colormap = GEOZ_COLOR_SET
         
     if ax==None:
-        fig, ax = plt.subplots(figsize=(GEOZ_FIGURE_RESOLUTION * ratio, GEOZ_FIGURE_RESOLUTION))
+        fig, ax = plt.subplots()
         alpha=1
     else:
         if alpha==None:
@@ -547,7 +547,7 @@ def mlx_plot(latlong, y_pred, C=100, gamma=30.0, bazel=False, n_samples='default
     ratio = lonRange/latRange
 
     if ax==None:
-        fig, ax = plt.subplots(figsize=(GEOZ_FIGURE_RESOLUTION * ratio, GEOZ_FIGURE_RESOLUTION))
+        fig, ax = plt.subplots()
 
     clf.fit(X, y.ravel())
     print('\nDrawing Accuracy: ',np.round(clf.score(X, y)*100,2), '%\n\n')
