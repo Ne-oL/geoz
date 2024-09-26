@@ -78,7 +78,7 @@ map1 = geoz.convex_hull_plot(latlong[['y','x']], latlong['label'])              
 stateplot = stateFile.plot( color='none',  edgecolor='black',linewidth=5, ax=map1)  # This line will create a basemap ontop of the mapping function results.
 ```
 <img src="./miscellaneous/images/convex_hull.png" alt="CH" width="500px">
-
+For further details, the user can refer to the [Convex_hull.ipynb](https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Convex_hull.ipynb)
 
 #### sklearn_plot Function
 
@@ -88,7 +88,7 @@ stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This l
 map2 = geoz.sklearn_plot(latlong[['y','x']], latlong[['label']], C=1000, gamma=50.0, grid_resolution=100,show_points=True, bazel=True, ax=stateplot)                # This Function will return a map drawn using Scikit-Learn "DecisionBoundaryDisplay"
 ```
 <img src="./miscellaneous/images/sklearn_plot.png" alt="SKL" width="500px">
-
+For further details, the user can refer to the [Sklearn_plot.ipynb](https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Sklearn_plot.ipynb)
 
 #### mlx_plot Function
 
@@ -98,8 +98,8 @@ stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This l
 
 map3 = geoz.mlx_plot(latlong[['y','x']], latlong[['label']], bazel=True, ax=stateplot, n_jobs=-1)                    # This Function will return a map drawn using MLextend  "decision_regions"
 ```
-<img src="./miscellaneous/images/mlx_plot.png" alt="CH" width="500px">
-
+<img src="./miscellaneous/images/mlx_plot.png" alt="MLX" width="500px">
+For further details, the user can refer to the [Mlx_plot Notebook](https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Mlx_plot.ipynb)
 
 #### voronoi_regions_plot Function
 
@@ -109,7 +109,7 @@ stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This l
 map4 = geoz.voronoi_regions_plot(latlong, 'x', 'y', 'label', show_points=True, ax= stateplot, mask=stategeo)                    # This Function will return a map drawn using the new method based on Voronoi diagram "voronoi_regions_plot"
 ```
 <img src="./miscellaneous/images/voronoi_regions_plot.png" alt="CH" width="500px">
-
+For further details, the user can refer to the [Voronoi_regions_plot.ipynb](https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Voronoi_regions_plot.ipynb)
 
 For further infromation or the function's other parameters, please check the accompanying Jupyter Notebooks (still being prepared) as well as functions DocStrings as they contain more details and information.
 
