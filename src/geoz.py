@@ -602,11 +602,10 @@ def voronoi_regions_plot(data, lon_col, lat_col, region_col, alpha=None, ax=None
         Display the points used to create the Decision Boundary. This would allow the user to check the accuracy of the model
         as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
 
-    edges : bool, default False
-        Display the points used to create the Decision Boundary. This would allow the user to check the accuracy of the model
-        as well as any artifacts or missing clusters, thus alerting the user to enable bazel_cluster function.
+    edgecolors : bool, default False
+        Determine the colors used to create boundaries in the voronoi diagram. This would allow the user to view how the voronoi tessellation is calculated and drawn in the map.
 
-        mask : shapely.geometry.Polygon, optional
+    mask : shapely.geometry.Polygon, optional
         A polygon to use as a mask for the Voronoi diagram. If provided, the diagram will be
         clipped to the extent of this shape.
 
