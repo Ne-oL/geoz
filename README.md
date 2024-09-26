@@ -106,7 +106,7 @@ map3 = geoz.mlx_plot(latlong[['y','x']], latlong[['label']], bazel=True, ax=stat
 ```python
 stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This line will create a basemap so the mapping function will draw ontop of it.
 
-map4 = geoz.voronoi_regions_plot(latlong, 'x', 'y', 'label', show_points=True, ax= stateplot, mask=stategeo)                    # This Function will return a map drawn using MLextend  "decision_regions"
+map4 = geoz.voronoi_regions_plot(latlong, 'x', 'y', 'label', show_points=True, ax= stateplot, mask=stategeo)                    # This Function will return a map drawn using the new method based on Voronoi diagram "voronoi_regions_plot"
 ```
 <img src="./miscellaneous/images/voronoi_regions_plot.png" alt="CH" width="500px">
 
