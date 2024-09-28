@@ -30,13 +30,15 @@ The data provided needs to have two variables, one containing the latitude and l
 |    35    	|    -102   	|    3   	|
 
 ~Please make sure to write (LATITUDE, LONGITUDE) in CAPITAL LETTER, otherwise the algorithm will fail.~  
-The algorithm has been enhanced to follow GIS conventions using positional indexing. It now expects *latitude* data in the first column and *longitude* data in the second column, regardless of the column headers names. Please note that adhering to this order is crucial; reversing it will lead to inaccurate results.
+The algorithm has been enhanced to follow GIS conventions using positional indexing. It now expects **latitude** data in the first column and **longitude** data in the second column, **regardless of the column headers names**. Please note that adhering to this order is crucial; reversing it will lead to inaccurate results.
 
 ### Code Example
 
 The examples illustrated here are used to demonstrate how each method plots the data. There are several examples and detailed implementations in the accompanying jupyter notebooks mentioned below. The user is advised to read them for greater details. 
 
-In all the examples shown we use a synthetic dataset called "GeoZD" as well as a simplified map of United Arab Emirates (UAE) for demonstration (displayed below). in the below examples, we import geoz and then use the already defined variable 'dataset' that contains our above table, the variable should contain the latitude, longitude and the y_pred, but it can also contain only the latitude and longitude without the class. In that case you will need to provide another variable (eg. y_pred) to store the class predictions and use it in the functions calling.
+In all the examples shown we use a synthetic dataset called "GeoZD" that was generated using the awesome [drawdata](https://github.com/koaning/drawdata) library, as well as a simplified map of United Arab Emirates (UAE) for demonstration (both displayed below).  
+  
+  
 <div align="center">
   <table>
     <tr>
@@ -53,7 +55,9 @@ In all the examples shown we use a synthetic dataset called "GeoZD" as well as a
     </tr>
   </table>
 </div>
-
+  
+In the below examples, we import geoz and then load the synthetically generated dataset into a variable named "latlong". The variable should contain the latitude, longitude and the y_pred, but it can also contain only the latitude and longitude without the class. In that case you will need to provide another variable (eg. y_pred) to store the class predictions and use it in the functions calling.  
+  
 ```python
 import geoz
 import pandas as pd
@@ -102,7 +106,7 @@ map3 = geoz.mlx_plot(latlong[['y','x']], latlong[['label']], bazel=True, ax=stat
 For further details, the user can refer to the <a href="https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Mlx_plot.ipynb">Mlx_plot Notebook</a>
 
 #### voronoi_regions_plot Function
-This new function was developed based on the work done in Fang et al., 2024 (https://doi.org/10.1016/j.ejrh.2024.101938). This function was developed to address one of the main weakness in GeoZ library, which was its inability to map small datasets. The function works by creating voronoi diagrams and then color the regions for each class with the same color, resulting in different regions highlighting the different clusters. 
+This new function was developed to address one of the main weaknesses in GeoZ library, which was its inadequacy to map small datasets. The function was developed based on the work done in Fang et al., 2024 (https://doi.org/10.1016/j.ejrh.2024.101938), if you use this function please cite them along with GeoZ please. The function works simply by creating voronoi diagrams and then color the regions for each class with the same color, resulting in different regions highlighting the different clusters. 
 
 ```python
 stateplot=stateFile.plot( color='none',  edgecolor='black',linewidth=5) # This line will create a basemap so the mapping function will draw ontop of it.
@@ -112,7 +116,7 @@ map4 = geoz.voronoi_regions_plot(latlong, 'x', 'y', 'label', show_points=True, a
 <img src="./miscellaneous/images/voronoi_regions_plot.png" alt="CH" width="500px">
 For further details, the user can refer to the <a href="https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Voronoi_regions_plot.ipynb">Voronoi_regions_plot.ipynb</a>, <a href="https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Voronoi_regions_plot_Minimum.ipynb">Voronoi_regions_plot_Minimum.ipynb</a> Notebooks. <br><br>
     
-For further infromation or the function's other parameters, please check the accompanying Jupyter Notebooks as well as functions DocStrings as they contain more details and information.
+For further infromation or the functions other parameters, please check the accompanying Jupyter Notebooks as well as functions DocStrings as they contain more details and information.
 
 ## License information
 
@@ -141,7 +145,7 @@ year = {2023}
 }
 ```
 
-If you use the new **voronoi_regions_plot** as part of your workflow in a scientific publication, please consider citing the following work in addition to GeoZ:
+If you use the new **voronoi_regions_plot** function as part of your workflow in a scientific publication, please consider citing the following work in addition to GeoZ:
 
 
 ```
