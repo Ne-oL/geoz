@@ -710,38 +710,52 @@ def voronoi_regions_plot(data, lon_col, lat_col, region_col, alpha=None, ax=None
     
 def bazel_cluster(X,y,n_samples='default', extent=1, random_seed=None):
     
-    '''
-    This Function creates a Bazel round the study area, the defaults are robust but not gurateed to work.
-    its pretty easy to check if the function worked or not by looking at the final map/Decision Boundary plot,
-    if the map have a Bazel, it means the method did NOT work and the user needs to adjust the default values to increase
-    generated data points to force the model to consider the Bazel cluster as the background. if it works, the map will be
-    clear, showing only the clusters of interest without the Bazel showing.
-    
-    Caution: This method have very specific usage to ONLY complement the SVM Classification algorithm by allowing all the 
-    clusters to show on the Map through forcing the SVM Classifier to consider the generated dummy data as the majority, 
-    thus acting as a background to the Decision Boundary feature space plot which is a representation of the geographic map.
-    
-    X: Dataset containing only Longitude and Latitude (must be the only features used by the Classifier to create the final map).
-    
-    y: array or array-like containing only the predicted clusters names (Must be Numerical e.g. 1,2,3,4...).
-    
-    n_samples: this variable is generated based on your dataset, you only need to modify it if the method fails force 
-    SVM Classifier to consider the cluster as a background.
-    
-    extent: the "width" of the generated Bazel, there should be no need to change this variable, however, if the method
-    failed after menipulating n_samples, you could try to increase the default to 2 or 3 while increase the n_samples
-    accourdingly.
-    
+    """
+    Create a Bazel around the study area for SVM Classification.
+
+    This function creates a Bazel (background) around the study area. The defaults are robust but not guaranteed to work.
+    It's easy to check if the function worked by looking at the final map/Decision Boundary plot. If the map has a Bazel,
+    the method did NOT work, and the user needs to adjust the default values to increase generated data points to force
+    the model to consider the Bazel cluster as the background. If it works, the map will be clear, showing only the
+    clusters of interest without the Bazel showing.
+
+    Caution: This method has a very specific usage to ONLY complement the SVM Classification algorithm by allowing all
+    the clusters to show on the Map through forcing the SVM Classifier to consider the generated dummy data as the
+    majority, thus acting as a background to the Decision Boundary feature space plot which is a representation of
+    the geographic map.
+
+    Parameters
+    ----------
+    X : pandas.DataFrame
+        Dataset containing only Longitude and Latitude (must be the only features used by the Classifier to create
+        the final map).
+    y : array-like
+        Array containing only the predicted clusters names (Must be Numerical e.g. 1,2,3,4...).
+    n_samples : int, optional
+        Number of samples to generate for the Bazel. This variable is generated based on your dataset. You only need
+        to modify it if the method fails to force SVM Classifier to consider the cluster as a background.
+    extent : float, optional
+        The "width" of the generated Bazel. There should be no need to change this variable. However, if the method
+        failed after manipulating n_samples, you could try to increase the default to 2 or 3 while increasing the
+        n_samples accordingly.
+    random_seed : int, optional
+        Sets Numpy Random Seed as a constant for Reproducibility. This mainly affects the randomness of the Bazel
+        samples distribution within the extent parameter.
+
     Returns
-    -------   
-    X: pandas.DataFrame
-        Dataset containing the Longitude and Latitude of the data points in addition to the extra points produced 
+    -------
+    X : pandas.DataFrame
+        Dataset containing the Longitude and Latitude of the data points in addition to the extra points produced
         by the algorithm that will act as the bazel for the SVM Classifier.
-    y: list
-        a list array containing the predicted clusters names (Numerical e.g. 1,2,3,4...) in addition to the extra cluster
-        produced by the algorithm that will act as the bazel for the SVM Classifier.
-    
-    '''
+    y : list
+        A list array containing the predicted clusters names (Numerical e.g. 1,2,3,4...) in addition to the extra
+        cluster produced by the algorithm that will act as the bazel for the SVM Classifier.
+
+    Notes
+    -----
+    The success of this method can be visually confirmed by checking the final map/Decision Boundary plot. A
+    successful application will show only the clusters of interest without the Bazel being visible.
+    """
 
     random.seed(a=random_seed)
 
