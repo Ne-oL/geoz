@@ -116,7 +116,7 @@ map4 = geoz.voronoi_regions_plot(latlong, 'x', 'y', 'label', show_points=True, a
 <img src="./miscellaneous/images/voronoi_regions_plot.png" alt="CH" width="500px">
 For further details, the user can refer to the <a href="https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Voronoi_regions_plot.ipynb">Voronoi_regions_plot.ipynb</a>, <a href="https://github.com/Ne-oL/geoz/blob/main/miscellaneous/Notebooks/Voronoi_regions_plot_Minimum.ipynb">Voronoi_regions_plot_Minimum.ipynb</a> Notebooks. <br><br>
     
-For further infromation or the functions other parameters, please check the accompanying Jupyter Notebooks as well as functions DocStrings as they contain more details and information.
+For further infromation or the functions other parameters, please check the accompanying [Jupyter Notebooks](https://github.com/Ne-oL/geoz/tree/main/miscellaneous/Notebooks) as well as functions DocStrings as they contain more details and information.
 
 ## License information
 
